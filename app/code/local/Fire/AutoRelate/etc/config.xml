@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<Fire_AutoRelate><version>0.1.0</version></Fire_AutoRelate>
+	</modules>
+	<global>
+		<models>
+			<fire_autorelate><class>Fire_AutoRelate_Model</class></fire_autorelate>
+		</models>
+	</global>
+	<adminhtml>
+		<events>
+			<catalog_product_save_before>
+				<observers>
+					<fire_autorelate_add_related_products>
+						<type>singleton</type>
+						<class>fire_autorelate/observer</class>
+						<method>handleSave</method>
+					</fire_autorelate_add_related_products>
+				</observers>
+			</catalog_product_save_before>
+		</events>
+	</adminhtml>
+</config>
